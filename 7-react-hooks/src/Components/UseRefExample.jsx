@@ -1,15 +1,22 @@
-import React, {useEffect} from 'react'
+import React, {useRef} from 'react'
 
-function useEffectExample () {
-    
-    useEffect (() => {
-        document.body.style.color = 'blue'
-    })
+function useRefExample () {
+
+    function clearInput() {
+        inputRef.current.value = " "
+        inputRef.current.focus()
+    }
 
    
     return (
-        <h1> React Hooks </h1>
+        <>
+        <form>
+            <input type='text' ref={inputRef}></input>
+        </form>
+
+        <button onClick={clearInput}> Clear the input! </button>
+        </>
     )
 }
 
-export default useEffectExample
+export default useRefExample
